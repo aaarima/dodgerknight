@@ -1,0 +1,181 @@
+@font-face {
+  font-family: VT323;
+  src: url(assets/VT323-Regular.ttf);
+}
+
+@font-face {
+  font-family: PixelFraktur;
+  src: url(assets/PixelFraktur.ttf);
+}
+
+body {
+  margin: 0;
+  background-color: #9E7654;
+  overflow: hidden;
+}
+
+.top-bar {
+  position: relative;
+  top: 0;
+  height: 60px;
+  background-color: blue;
+  padding: 11.5px 0;
+  box-sizing: border-box;
+  background-image: url("assets/wood.png");
+  background-size: auto 100%;
+  background-repeat: repeat;
+}
+
+.top-bar h1 {
+  text-align: center;
+  font-family: PixelFraktur, serif;
+  color: white;
+  margin: 0;
+}
+
+#game-canvas {
+  /*background-color: darkgreen;*/
+  position: absolute;
+  z-index: 1;
+  /*border: 2px solid red;*/
+}
+
+.screen {
+  background-color: black;
+  height: calc(100vh - 120px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.canvas-container {
+  position: relative;
+}
+
+@media screen and (min-width: calc(100vh * 1.414)) {
+  .canvas-container {
+    height: calc(100vh - 120px);
+    width: calc((100vh - 120px) * 1.66666)
+  }
+
+  #game-canvas {
+    width: auto;
+    height: 100%;
+  }
+
+  .screen {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: calc(100vh * 1.414)) {
+  .canvas-container {
+    width: 100%;
+    height: calc(100vw * .6)
+  }
+
+  #game-canvas {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.option-container {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  width: 100%;
+  font-family: VT323, monospace;
+}
+
+.option-container h3 {
+  color: white;
+}
+
+.option-container .link {
+  margin-right: 5%;
+}
+
+.start-container {
+  position: absolute;
+  z-index: 3;
+  font-family: VT323, monospace;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-container h1 {
+  color: white;
+  text-align: center;
+  display: inline-block;
+}
+
+.footer {
+  position: relative;
+  top: 100%;
+  border-top: 2px solid grey;
+  background-color: green;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  align-items: center;
+  font-family: VT323, monospace;
+  background-image: url("assets/wood.png");
+  background-size: auto 100%;
+  background-repeat: repeat;
+}
+
+.footer {
+  padding: 12.5px 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.link {
+  transition: transform .2s;
+}
+
+.footer .link a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer .text-container .spacer {
+  width: 20vw;
+}
+
+.link:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+}
